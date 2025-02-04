@@ -99,5 +99,10 @@ namespace MarketPlace
             Console.WriteLine($"Описание: {Description}");
             Console.ResetColor();
         }
+
+        public override string ToString()
+        {
+            return $"Процессор: {Brand} {Name} {Socket} {Cores} {Cache} {Frequency} {Price} {Description}";
+        }
     }
 }

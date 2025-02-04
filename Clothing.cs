@@ -46,5 +46,10 @@ namespace MarketPlace
             Console.ResetColor();
         }
 
+        public override string ToString()
+        {
+            return $"Одежда: {Brand} {Name} {Size} {Price} {Description}";
+        }
+
     }
 }

@@ -115,5 +115,10 @@ namespace MarketPlace
             Console.WriteLine($"Описание: {Description}");
             Console.ResetColor();
         }
+
+        public override string ToString()
+        {
+            return $"Видеокарта: {Brand} {Name} {Core} {Frequency} {MemorySize} {MemoryBus} {MemoryClock} {Price} {Description}";
+        }
     }
 }

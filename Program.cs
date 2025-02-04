@@ -2,6 +2,7 @@
 {
     internal class Program
     {
+        //тест формирования списка товаров
         static void CreateItems(ref List<IProduct> itemList)
         {
             itemList.Add(FoodsCreator.CreateFood("Ваш", "Помидор", 3.77, "Очень вкусный помидор", 250, DateTime.Parse("10.05.2025")));
@@ -32,6 +33,24 @@
 
         }
 
+        //тест записи товара в файл
+        static void WriteItemToFile(in List<IProduct> itemList)
+        {
+            //using(StreamWriter sw = new StreamWriter("items.txt"))
+            //{
+            //    foreach(var item in itemList)
+            //    {
+            //        sw.WriteLine(item.ToString());
+            //    }
+            //}
+            
+            //Запись в файл одного товара
+            FileProductWriter.WriteProductToFile(itemList[0]);
+
+            //Запись в файл всех товаров
+            FileProductWriter.WriteAllProductsToFile(itemList);
+        }
+
         static void ShowItems(in List<IProduct> itemList)
         {
             Product.DrawTable();
@@ -55,6 +74,8 @@
 
             CreateItems(ref itemList);
             ShowItems(itemList);
+            WriteItemToFile(itemList);
+
             //menu.Run();
 
         }

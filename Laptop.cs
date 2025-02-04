@@ -126,5 +126,10 @@ namespace MarketPlace
             Console.WriteLine($"Описание: {Description}");
             Console.ResetColor();
         }
+
+        public override string ToString()
+        {
+            return $"Ноутбук: {Brand} {Name} {CPU} {RAM} {HDD} {ScreenResolution} {GPU} {OS} {Price} {Description}";
+        }
     }
 }

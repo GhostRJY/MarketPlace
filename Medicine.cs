@@ -49,5 +49,10 @@ namespace MarketPlace
             Console.ResetColor();
         }
 
+        public override string ToString()
+        {
+            return $"Лекарства: {Brand} {Name} {MedicineType} {Price} {Description}";
+        }
+
     }
 }

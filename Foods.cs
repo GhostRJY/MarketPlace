@@ -3,18 +3,18 @@ namespace MarketPlace
 {
     internal class Foods : Product
     {
-                
-        
+
+
         private int m_calories;
         private DateTime m_expirationDate;
 
         public int Calories
         {
             get { return m_calories; }
-            
-            set 
-            { 
-                if(value>=0)
+
+            set
+            {
+                if(value >= 0)
                     m_calories = value;
                 else
                 {
@@ -28,7 +28,7 @@ namespace MarketPlace
             get { return m_expirationDate; }
             set
             {
-                if (value >= DateTime.Now)
+                if(value >= DateTime.Now)
                     m_expirationDate = value;
                 else
                 {
@@ -38,12 +38,12 @@ namespace MarketPlace
         }
 
         public Foods(string brand,
-                     string name,            
-                     double price,                     
+                     string name,
+                     double price,
                      string description,
                      int calories,
                      DateTime expirationDate)
-                     
+
             : base(brand,
                   name,
                   price,
@@ -70,5 +70,10 @@ namespace MarketPlace
             Console.ResetColor();
         }
 
+        public override string ToString()
+        {
+            return $"Продукты питания: {Brand} {Name} {Calories} {ExpirationDate} {Price} {Description}";
+
+        }
     }
 }

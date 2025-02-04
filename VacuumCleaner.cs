@@ -39,5 +39,10 @@ namespace MarketPlace
             Console.WriteLine($"Описание: {Description}");
             Console.ResetColor();
         }
+
+        public override string ToString()
+        {
+            return $"Пылесос: {Brand} {Name} {Power} {Price} {Description}";
+        }
     }
 }

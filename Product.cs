@@ -132,5 +132,10 @@ namespace MarketPlace
 
             Console.ResetColor();
         }
+
+        public virtual string ToString()
+        {
+            return $"Производитель: {Brand}\nНазвание товара: {Name}\nЦена: {Price.ToString("F2")} USD\nОписание: {Description}";
+        }
     }
 }

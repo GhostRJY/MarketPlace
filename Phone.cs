@@ -92,5 +92,10 @@ namespace MarketPlace
             Console.WriteLine($"Описание: {Description}");
             Console.ResetColor();
         }
+
+        public override string ToString()
+        {
+            return $"Телефон: {Brand} {Name} {Ram} {Cpu} {Frequency} {Os} {Price} {Description}";
+        }
     }
 }

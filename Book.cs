@@ -48,5 +48,10 @@ namespace MarketPlace
             Console.WriteLine($"Описание: {Description}");
             Console.ResetColor();
         }
+
+        public override string ToString()
+        {
+            return $"Книги: {Brand} {Name} {Author} {Genre} {Price} {Description}";
+        }
     }
 }

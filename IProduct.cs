@@ -10,5 +10,7 @@ namespace MarketPlace
     {
         abstract public void ShowProduct();
         abstract public void ShowProductSmallInfo();
+
+        abstract public string ToString();
     }
 }
