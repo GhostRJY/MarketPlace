@@ -1,6 +1,8 @@
-﻿
+﻿using MessagePack;
+
 namespace MarketPlace
 {
+    [MessagePackObject(keyAsPropertyName: true)]
     internal class Phone : Electronics
     {
         private int m_ram;
@@ -96,6 +98,10 @@ namespace MarketPlace
         public override string ToString()
         {
             return $"Телефон: {Brand} {Name} {Ram} {Cpu} {Frequency} {Os} {Price} {Description}";
+        }
+        public override void Serialize()
+        {
+            PhoneSerializer.PhoneWriteToFile(this);
         }
     }
 }

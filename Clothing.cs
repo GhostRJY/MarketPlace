@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MessagePack;
 
 namespace MarketPlace
 {
+    [MessagePackObject(keyAsPropertyName: true)]
     internal class Clothing : Product
     {
         private int m_size;
@@ -51,5 +48,9 @@ namespace MarketPlace
             return $"Одежда: {Brand} {Name} {Size} {Price} {Description}";
         }
 
+        public override void Serialize()
+        {
+            ClothingSerializer.ClothWriteToFile(this);
+        }
     }
 }

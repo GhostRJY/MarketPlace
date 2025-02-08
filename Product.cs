@@ -1,7 +1,9 @@
-﻿
+﻿using MessagePack;
+
 namespace MarketPlace
 {
     //класс для объединения всех продуктов 
+    
     abstract class Product : IProduct
     {
         public enum CategoryType
@@ -137,5 +139,7 @@ namespace MarketPlace
         {
             return $"Производитель: {Brand}\nНазвание товара: {Name}\nЦена: {Price.ToString("F2")} USD\nОписание: {Description}";
         }
+
+        abstract public void Serialize();
     }
 }

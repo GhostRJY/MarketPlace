@@ -1,6 +1,9 @@
-﻿
+﻿using MessagePack;
+
+
 namespace MarketPlace
 {
+    [MessagePackObject(keyAsPropertyName: true)]
     internal class VacuumCleaner : Electronics
     {
         private int m_power;
@@ -43,6 +46,11 @@ namespace MarketPlace
         public override string ToString()
         {
             return $"Пылесос: {Brand} {Name} {Power} {Price} {Description}";
+        }
+
+        public override void Serialize()
+        {
+            VacSerializer.VacWriteToFile(this);
         }
     }
 }

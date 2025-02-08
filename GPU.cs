@@ -1,6 +1,8 @@
-﻿
+﻿using MessagePack;
+
 namespace MarketPlace
 {
+    [MessagePackObject(keyAsPropertyName: true)]
     internal class GPU : Electronics
     {        
         private string m_core;
@@ -119,6 +121,11 @@ namespace MarketPlace
         public override string ToString()
         {
             return $"Видеокарта: {Brand} {Name} {Core} {Frequency} {MemorySize} {MemoryBus} {MemoryClock} {Price} {Description}";
+        }
+
+        public override void Serialize()
+        {
+            GPUSerializer.GPUWriteToFile(this);
         }
     }
 }

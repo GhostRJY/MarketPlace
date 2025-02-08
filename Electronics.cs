@@ -40,7 +40,7 @@ namespace MarketPlace
             : base(brand, name, price, Product.CategoryType.Electronics, description)
         {
             ElectronicType = electronicType;
-        }
+        }               
 
     }
 }

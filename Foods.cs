@@ -1,10 +1,11 @@
 ﻿
+using MessagePack;
+
 namespace MarketPlace
 {
+    [MessagePackObject(keyAsPropertyName:true)]
     internal class Foods : Product
     {
-
-
         private int m_calories;
         private DateTime m_expirationDate;
 
@@ -74,6 +75,11 @@ namespace MarketPlace
         {
             return $"Продукты питания: {Brand} {Name} {Calories} {ExpirationDate} {Price} {Description}";
 
+        }
+
+        public override void Serialize()
+        {
+            FoodSerializer.FoodWriteToFile(this);
         }
     }
 }

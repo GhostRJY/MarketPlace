@@ -1,7 +1,10 @@
 ﻿
 
+using MessagePack;
+
 namespace MarketPlace
 {
+    [MessagePackObject(keyAsPropertyName: true)]
     internal class Book : Product
     {        
         private string m_author;
@@ -52,6 +55,11 @@ namespace MarketPlace
         public override string ToString()
         {
             return $"Книги: {Brand} {Name} {Author} {Genre} {Price} {Description}";
+        }
+
+        public override void Serialize()
+        {
+            BookSerializer.BookWriteToFile(this);
         }
     }
 }

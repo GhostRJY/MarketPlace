@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MessagePack;
 
 namespace MarketPlace
 {
+    [MessagePackObject(keyAsPropertyName:true)]
     internal class CPU : Electronics
     {
         private string m_socket;
@@ -103,6 +100,11 @@ namespace MarketPlace
         public override string ToString()
         {
             return $"Процессор: {Brand} {Name} {Socket} {Cores} {Cache} {Frequency} {Price} {Description}";
+        }
+
+        public override void Serialize()
+        {
+            CPUSerializer.CPUWriteToFile(this);
         }
     }
 }

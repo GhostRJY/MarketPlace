@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MessagePack;
 
 namespace MarketPlace
 {
+    [MessagePackObject(keyAsPropertyName:true)]
     internal class Laptop : Electronics
     {
         private string m_cpu;
@@ -130,6 +127,11 @@ namespace MarketPlace
         public override string ToString()
         {
             return $"Ноутбук: {Brand} {Name} {CPU} {RAM} {HDD} {ScreenResolution} {GPU} {OS} {Price} {Description}";
+        }
+
+        public override void Serialize()
+        {
+            LaptopSerializer.LaptopWriteToFile(this);
         }
     }
 }

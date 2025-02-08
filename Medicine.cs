@@ -1,7 +1,10 @@
 ﻿
 
+using MessagePack;
+
 namespace MarketPlace
 {
+    [MessagePackObject(keyAsPropertyName: true)]
     internal class Medicine : Product
     {
         string m_medicineType;
@@ -52,6 +55,11 @@ namespace MarketPlace
         public override string ToString()
         {
             return $"Лекарства: {Brand} {Name} {MedicineType} {Price} {Description}";
+        }
+
+        public override void Serialize()
+        {
+            MedicineSerializer.MedicineWriteToFile(this);
         }
 
     }

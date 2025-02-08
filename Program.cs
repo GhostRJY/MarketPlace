@@ -51,6 +51,23 @@
             FileProductWriter.WriteAllProductsToFile(itemList);
         }
 
+        //тест сериализации еды
+        static void FoodSerializeWriteTest()
+        {
+            Foods food = new Foods("Ваш", "Помидор", 3.77, "Очень вкусный помидор", 250, DateTime.Parse("10.05.2025"));
+            Foods food1 = new Foods("Ваш", "Томат", 3.88, "Очень вкусный помидор", 250, DateTime.Parse("10.05.2025"));
+            FoodSerializer.FoodWriteToFile(food);
+            FoodSerializer.FoodWriteToFile(food1);
+        }
+        
+        //тест десериализации еды
+        static void FoodSerializeReadTest()
+        {
+            var food = FoodSerializer.FoodReadFromFile();
+            foreach(var item in food)
+                item.ShowProduct();
+        }
+
         static void ShowItems(in List<IProduct> itemList)
         {
             Product.DrawTable();
@@ -59,12 +76,16 @@
                 item.ShowProductSmallInfo();
                 Console.WriteLine();
             }
+            
+        }
 
-            //foreach(var item in itemList)
-            //{
-            //    item.ShowProduct();
-            //    Console.WriteLine();
-            //}
+        //тест сериализации всех продуктов
+        static void SerializeAllProducts(List<IProduct> list)
+        {
+            foreach(var item in list)
+            {
+                item.Serialize();
+            }
         }
 
         static void Main(string[] args)
@@ -74,7 +95,13 @@
 
             CreateItems(ref itemList);
             ShowItems(itemList);
-            WriteItemToFile(itemList);
+
+            SerializeAllProducts(itemList);
+
+            //WriteItemToFile(itemList);
+
+            //FoodSerializeWriteTest();
+            //FoodSerializeReadTest();
 
             //menu.Run();
 
